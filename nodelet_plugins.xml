@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<library path="lib/libdistributed_plug_in">
+	<class type="voraus::DistributedPlugIn" base_class_type="nodelet::Nodelet">
+		<description>
+			PlugIn Definition Nodelet for central and decentral use.
+		</description>
+	</class>
+</library>

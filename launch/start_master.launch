@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<launch>
+	
+	<!-- Loop rates in [Hz]; values between 1.0 and 5000.0 are allowed -->
+	<arg name="loop_rate" default="20.0" />
+	<arg name="modMan_loop_rate" default="$(arg loop_rate)" />
+	<arg name="taSche_loop_rate" default="5.0" />
+	<arg name="local_loop_rate" default="10.0" />
+	<arg name="paPlan_loop_rate" default="5.0" />
+	<arg name="localisation_plug_in_name" />
+	<arg name="task_scheduling_plug_in_name" />
+	<arg name="path_planning_plug_in_name" />
+			
+	<!--module manager-->
+	<node name="master_modMan" pkg="voraus" type="centralModMan" output="screen">
+		<param name="loop_rate" value="$(arg modMan_loop_rate)" />
+	</node>
+
+	<!--task scheduling-->
+	<node name="central_plugIn_taskScheduling" pkg="voraus" type="centralPlugIn" output="screen">
+		<param name="loop_rate" value="$(arg taSche_loop_rate)"/>
+		<param name="plug_in_name" value="$(arg task_scheduling_plug_in_name)"/>
+		<param name="log_name" value="taSche"/>
+	</node>
+
+	<!--localisation-->
+	<node name="central_plugIn_localisation" pkg="voraus" type="centralPlugIn" output="screen">
+		<param name="loop_rate" value="$(arg local_loop_rate)"/>
+		<param name="plug_in_name" value="$(arg localisation_plug_in_name)"/>
+		<param name="log_name" value="local"/>
+	</node>
+
+	<!--path planning-->
+	<node name="central_plugIn_pathPlanning" pkg="voraus" type="centralPlugIn" output="screen">
+		<param name="loop_rate" value="$(arg paPlan_loop_rate)"/>
+		<param name="plug_in_name" value="$(arg path_planning_plug_in_name)"/>
+		<param name="log_name" value="paPlan"/>
+	</node>
+
+</launch>

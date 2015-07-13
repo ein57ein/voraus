@@ -1,0 +1,16 @@
+int32 undefind = -1
+int32 module_managment = 0
+int32 task_scheduling = 1
+int32 localisation = 2
+int32 path_planing = 3
+int32 move_base = 10
+int32 manipulator_controller = 11
+int32 fluid_spout_controller = 12
+int32 misc = 100
+
+int32 sending_module
+string type
+---
+int32 id
+
+bool module_central

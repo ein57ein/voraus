@@ -2,6 +2,7 @@
 .swp$
 build/
 devel/
+gh-pages/
 bin/
 lib/
 msg_gen/

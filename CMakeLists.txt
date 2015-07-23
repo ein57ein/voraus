@@ -52,6 +52,8 @@ find_package(catkin REQUIRED COMPONENTS
  add_message_files(
    FILES
    heartbeat.msg
+   cpu_demo_ready.msg
+   data_demo_ready.msg
 #   Message1.msg
 #   Message2.msg
  )
@@ -117,6 +119,8 @@ add_library(decentralPlugInLib src/voraus/decentral_plug_in.cpp)
 add_library(centralModManLib src/module_management/central_module_management.cpp)
 add_library(decentralModManLib src/module_management/decentral_module_management.cpp)
 
+add_library(_voraus_demo src/demo.cpp)
+
 ## Declare a cpp executable
 # add_executable(voraus_node src/voraus_node.cpp)
 add_executable(centralPlugIn src/central_plug_in_controller.cpp)
@@ -135,6 +139,8 @@ add_dependencies(decentralPlugInLib voraus_generate_messages_cpp)
 add_dependencies(centralModManLib voraus_generate_messages_cpp)
 add_dependencies(decentralModManLib voraus_generate_messages_cpp)
 
+add_dependencies(_voraus_demo voraus_generate_messages_cpp)
+
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(voraus_node
 #   ${catkin_LIBRARIES}
@@ -148,6 +154,8 @@ target_link_libraries(centralModManLib ${catkin_LIBRARIES})
 target_link_libraries(decentralModManLib ${catkin_LIBRARIES})
 target_link_libraries(centralModMan ${catkin_LIBRARIES} centralModManLib)
 target_link_libraries(decentralModMan ${catkin_LIBRARIES} decentralModManLib)
+
+target_link_libraries(_voraus_demo ${catkin_LIBRARIES})
 
 #############
 ## Install ##

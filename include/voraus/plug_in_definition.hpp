@@ -114,7 +114,7 @@ namespace voraus
 		 * @param loopTime [s] time for one Loop of the Callbacks in the central part
 		 * @return error code
 		 */
-		virtual int onInitCentral(float *loopTime) {
+		virtual int onInitCentral(float *loopRate) {
 			ROS_DEBUG("%s function \"onInitCentral\" is empty.", name.full.c_str());
 			return 0;
 		}
@@ -123,7 +123,7 @@ namespace voraus
 		 * @param loopTime [s] time for one Loop of the Callbacks in the nodelet part
 		 * @return error code
 		 */
-		virtual int onInitNodelet(float *loopTime) {
+		virtual int onInitNodelet(float *loopRate) {
 			ROS_DEBUG("%s function \"onInitNodelet\" is empty.", name.full.c_str());
 			return 0;
 		}
@@ -132,7 +132,7 @@ namespace voraus
 		 * @param loopTime [s] time for one Loop of the Callbacks in the decentral part
 		 * @return error code
 		 */
-		virtual int onInitDecentral(float *loopTime) {
+		virtual int onInitDecentral(float *loopRate) {
 			ROS_DEBUG("%s function \"onInitDecentral\" is empty.", name.full.c_str());
 			return 0;
 		}

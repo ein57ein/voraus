@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<library path="lib/lib_voraus_demo">
+	<class type="voraus_plugin::Demo" base_class_type="voraus::PlugInDefinition">
+		<description>
+			VORAUS demo plugIn
+		</description>
+	</class>
+</library>
+
+

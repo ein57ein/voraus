@@ -67,6 +67,7 @@ namespace module_management
 		res.task_scheduling = central.task_scheduling;
 		res.localisation = central.localisation;
 		res.path_planing = central.path_planing;
+		res.demo = central.demo;
 		
 		return true;
 	}
@@ -88,10 +89,15 @@ namespace module_management
 		ros::param::param<bool>(temp.str().c_str(), central.path_planing, false);
 
 		temp.str("");
+		temp << name.project_namespace << "/module_config/demo_central";
+		ros::param::param<bool>(temp.str().c_str(), central.demo, false);
+
+		temp.str("");
 		temp << "Module-Config: ";
 		temp << "task_scheduling = " << ((central.task_scheduling) ? "central" : "decentral");
 		temp << ", localisation = " << ((central.localisation) ? "central" : "decentral");
 		temp << ", path_planing = " << ((central.path_planing) ? "central" : "decentral");
+		temp << ", demo = " << ((central.demo) ? "central" : "decentral");
 
 		ROS_INFO("%s TimeOut: %.2fs; %s", name.full.c_str(), server.maxTimeWithoutHeartbeat.toSec(), temp.str().c_str());
 		

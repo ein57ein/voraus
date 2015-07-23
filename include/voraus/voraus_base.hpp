@@ -73,6 +73,7 @@ namespace voraus
 			module_maniCon = voraus::module_registration::Request::manipulator_controller,	/**< a module, which is used to controll a manipulator. */
 			module_fluidCon = voraus::module_registration::Request::fluid_spout_controller,	/**< a module, which is used inside the robomix package. It communicate with the arduino controller. */ //maybe misc?
 			module_misc = voraus::module_registration::Request::misc,		/**< a module, which does not match one of the other functions */
+			module_demo = voraus::module_registration::Request::demo,
 		};
 
 	protected:

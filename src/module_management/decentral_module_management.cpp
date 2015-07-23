@@ -78,13 +78,15 @@ namespace module_management
 			central.task_scheduling = logInTemp.response.task_scheduling;
 			central.localisation = logInTemp.response.localisation;
 			central.path_planing = logInTemp.response.path_planing;
+			central.demo = logInTemp.response.demo;
 		} else {
 			robot.state = voraus::Voraus::unregistered;
 			name.id = 0;
 			robot.maxTimeWithoutHeartbeat = ros::Duration(3600);
 			central.task_scheduling = true;
 			central.localisation = true;
-			central.path_planing = true;		
+			central.path_planing = true;
+			central.demo = true;
 		}
 
 		robot.lastHeartbeatWithMyIdCounter = 0;
@@ -101,6 +103,7 @@ namespace module_management
 			temp << "task_scheduling = " << ((central.task_scheduling) ? "central" : "decentral");
 			temp << "; localisation = " << ((central.localisation) ? "central" : "decentral");
 			temp << "; path_planing = " << ((central.path_planing) ? "central" : "decentral");
+			temp << "; demo = " << ((central.demo) ? "central" : "decentral");
 
 			ROS_INFO("%s Connected to server; TimeOut: %.2fs; %s", name.full.c_str(), robot.maxTimeWithoutHeartbeat.toSec(), temp.str().c_str());
 		}

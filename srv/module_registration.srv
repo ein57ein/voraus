@@ -7,6 +7,7 @@ int32 move_base = 10
 int32 manipulator_controller = 11
 int32 fluid_spout_controller = 12
 int32 misc = 100
+int32 demo = 1337
 
 int32 sending_module
 string type

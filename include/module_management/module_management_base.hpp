@@ -36,6 +36,7 @@ namespace module_management
 			bool task_scheduling;	/**< true if task for all robots will be scheduled on the server **/
 			bool localisation;	/**< true if the localisation for all robots will be done on the server **/
 			bool path_planing;	/**< true if pathes for all robots will be planed on the server **/
+			bool demo;
 		} central;	/**< contains the module configurations **/
 
 		/** Initialize a instance of Voraus and register the service for
@@ -114,6 +115,10 @@ namespace module_management
 		} else if (req.sending_module == module_fluidCon)
 		{
 			module = "Fluid spout Controller";
+		} else if (req.sending_module == module_demo)
+		{
+			module = "VORAUS Demo";
+			res.module_central = central.demo;
 		} else if (req.sending_module == module_misc)
 		{
 			module = "misc";			

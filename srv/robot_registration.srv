@@ -5,3 +5,4 @@ float32 timeout
 bool task_scheduling
 bool localisation
 bool path_planing
+bool demo

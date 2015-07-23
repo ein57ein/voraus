@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<launch>
+	
+	<arg name="project_ns" default="voraus_demo"/>
+	<arg name="agent" default="J"/>
+
+	<group ns="$(arg project_ns)/$(arg agent)" >
+		<!--module manager-->
+		<node name="agent_modMan" pkg="voraus" type="decentralModMan" output="screen">
+			<param name="loop_rate" value="20.0" />	
+		</node>
+
+		<!--task scheduling-->
+		<node name="decentral_plugIn_demo" pkg="voraus" type="decentralPlugIn" output="screen">
+			<param name="loop_rate" value="5.7"/>
+			<param name="plug_in_name" value="voraus_plugin::Demo"/>
+			<param name="log_name" value="demo"/>
+		</node>
+	</group>
+	
+</launch>

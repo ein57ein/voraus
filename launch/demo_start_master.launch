@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<arg name="project_ns" default="voraus_demo"/>
+
+	<group ns="$(arg project_ns)" >
+
+		<param name="max_time_without_heartbeat" value="1.33"/>
+		<group ns="module_config">
+			<param name="demo_central" value="false"/>
+		</group>
+			
+		<!--module manager-->
+		<node name="master_modMan" pkg="voraus" type="centralModMan" output="screen">
+			<param name="loop_rate" value="20.0" />
+		</node>
+
+		<!--central part of the demo-plugIn-->
+		<node name="central_plugIn_demo" pkg="voraus" type="centralPlugIn" output="screen">
+			<param name="loop_rate" value="5.3"/>
+			<param name="plug_in_name" value="voraus_plugin::Demo"/>
+			<param name="log_name" value="demo"/>
+		</node>
+	</group>
+
+</launch>
